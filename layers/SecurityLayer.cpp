@@ -41,9 +41,7 @@ int notifications::SecurityLayer::send(char *string, std::map<std::string, void 
             delete string;
             string = encryptAsym(pe, pn, temp);
             size = ((temp.size()%4)!=0)?temp.size() +4 -(temp.size()%4) : temp.size();
-//            delete string;
-//            string = new char[temp.size()];
-//            strcpy(string, temp.c_str());
+
         }
         else
         {
@@ -182,10 +180,7 @@ int notifications::SecurityLayer::recive(char *&string, std::map<std::string, vo
     return code;
 }
 
-void notifications::SecurityLayer::shutdown()
-{
 
-}
 
 notifications::SecurityLayer::SecurityLayer(notifications::Layer *layer)
 {
@@ -251,8 +246,10 @@ bool notifications::SecurityLayer::getKeys(char *string, unsigned int& p_e, unsi
 void notifications::SecurityLayer::generateKey(char *&key)
 {
     key = new char[8];
-    char *temp = "ABCDEFGH";
-    strcpy(key, temp);
+    for(unsigned int i = 0; i < 8; ++i)
+    {
+        key[i] = genRandom();
+    }
 }
 
 void notifications::SecurityLayer::printHex(const char *mes, int size) const
@@ -267,3 +264,7 @@ void notifications::SecurityLayer::printHex(const char *mes, int size) const
     printf("\n");
 }
 
+char notifications::SecurityLayer::genRandom()
+{
+    return alphanum[rand() % alphanum.size()];
+}

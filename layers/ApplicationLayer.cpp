@@ -15,10 +15,6 @@ int notifications::ApplicationLayer::recive(char *&string, std::map<std::string,
     return code;
 }
 
-void notifications::ApplicationLayer::shutdown()
-{
-
-}
 
 
 notifications::ApplicationLayer::ApplicationLayer(notifications::Layer *layer)

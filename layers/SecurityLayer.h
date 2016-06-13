@@ -12,6 +12,13 @@
 
 namespace notifications
 {
+    static const std::string alphanum =
+        "0123456789"
+        "!@#$%^&*"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz";
+
+
     class SecurityLayer : public Layer
     {
         RSA rsa;
@@ -23,6 +30,7 @@ namespace notifications
         bool getKeys(char*, unsigned&, unsigned&);
         void generateKey(char*&);
         void printHex(const char*, int) const;
+        char genRandom();
     public:
         SecurityLayer(Layer *);
 
