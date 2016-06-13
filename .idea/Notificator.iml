@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CPP_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Server.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utilities/RSA.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utilities/TCPHeader.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utilities/RC4.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utilities/Util.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utilities/MD5.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utilities/TCPHeader.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utilities/RC4.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utilities/MD5.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utilities/Util.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utilities/RSA.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utilities/Configuration.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/utilities/Configuration.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test/db_test.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/layers/TransportLayer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/layers/ApplicationLayer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/layers/SecurityLayer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/layers/SecurityLayer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/layers/Log.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/layers/Layer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/layers/ApplicationLayer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/layers/TransportLayer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/layers/Layer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/layers/Log.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/database/jsoncpp.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/database/JsonBuilder.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/database/DatabaseService.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/database/DatabaseObjects.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/database/DatabaseService.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/database/json/json.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/database/json/json-forwards.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/database/JsonResolver.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/database/TableSQLs.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/database/JsonResolver.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/database/JsonBuilder.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Server.h" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+          <root url="file:///usr/include" />
+          <root url="file:///usr/local/include" />
+          <root url="file://$MODULE_DIR$/utilities" />
+          <root url="file://$MODULE_DIR$/layers" />
+          <root url="file://$MODULE_DIR$/database" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+          <root url="file:///usr/include" />
+          <root url="file:///usr/local/include" />
+          <root url="file://$MODULE_DIR$/utilities" />
+          <root url="file://$MODULE_DIR$/layers" />
+          <root url="file://$MODULE_DIR$/database" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/utilities/RSA.h" />
+          <root url="file://$MODULE_DIR$/utilities/TCPHeader.cpp" />
+          <root url="file://$MODULE_DIR$/utilities/RC4.h" />
+          <root url="file://$MODULE_DIR$/utilities/Util.cpp" />
+          <root url="file://$MODULE_DIR$/utilities/MD5.cpp" />
+          <root url="file://$MODULE_DIR$/utilities/TCPHeader.h" />
+          <root url="file://$MODULE_DIR$/utilities/RC4.cpp" />
+          <root url="file://$MODULE_DIR$/utilities/MD5.h" />
+          <root url="file://$MODULE_DIR$/utilities/Util.h" />
+          <root url="file://$MODULE_DIR$/utilities/RSA.cpp" />
+          <root url="file://$MODULE_DIR$/utilities/Configuration.cpp" />
+          <root url="file://$MODULE_DIR$/utilities/Configuration.h" />
+          <root url="file://$MODULE_DIR$/layers/TransportLayer.cpp" />
+          <root url="file://$MODULE_DIR$/layers/ApplicationLayer.cpp" />
+          <root url="file://$MODULE_DIR$/layers/SecurityLayer.h" />
+          <root url="file://$MODULE_DIR$/layers/SecurityLayer.cpp" />
+          <root url="file://$MODULE_DIR$/layers/Log.cpp" />
+          <root url="file://$MODULE_DIR$/layers/Layer.cpp" />
+          <root url="file://$MODULE_DIR$/layers/ApplicationLayer.h" />
+          <root url="file://$MODULE_DIR$/layers/TransportLayer.h" />
+          <root url="file://$MODULE_DIR$/layers/Layer.h" />
+          <root url="file://$MODULE_DIR$/layers/Log.h" />
+          <root url="file://$MODULE_DIR$/database/jsoncpp.cpp" />
+          <root url="file://$MODULE_DIR$/database/JsonBuilder.cpp" />
+          <root url="file://$MODULE_DIR$/database/DatabaseService.h" />
+          <root url="file://$MODULE_DIR$/database/DatabaseObjects.h" />
+          <root url="file://$MODULE_DIR$/database/DatabaseService.cpp" />
+          <root url="file://$MODULE_DIR$/database/json/json.h" />
+          <root url="file://$MODULE_DIR$/database/json/json-forwards.h" />
+          <root url="file://$MODULE_DIR$/database/JsonResolver.h" />
+          <root url="file://$MODULE_DIR$/database/TableSQLs.h" />
+          <root url="file://$MODULE_DIR$/database/JsonResolver.cpp" />
+          <root url="file://$MODULE_DIR$/database/JsonBuilder.h" />
+        </excluded>
+      </library>
+    </orderEntry>
+  </component>
+</module>
