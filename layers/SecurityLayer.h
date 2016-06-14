@@ -29,12 +29,12 @@ namespace notifications
         char* decryptAsym(const char *enc_mes, int size) const;
         bool getKeys(char*, unsigned&, unsigned&);
         void generateKey(char*&);
-        void printHex(const char*, int) const;
+
         char genRandom();
     public:
         SecurityLayer(Layer *);
+        void printHex(const char*, int) const;
 
-        void shutdown();
 
         int recive(char *&, std::map<std::string, void *> &);
 

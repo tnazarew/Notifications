@@ -15,7 +15,7 @@ namespace notifications
     public:
         TransportLayer(Layer *);
 
-        void shutdown();
+        void printHex(const char*, int) const;
 
         int recive(char *&, std::map<std::string, void *> &);
 

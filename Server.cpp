@@ -54,14 +54,13 @@ void notifications::Server::mainThread()
             initServer();
         else
             sleep(1);
-
         while (temp_config.isRunning())
         {
-            for (auto& i: active_threads)
+            for (int i =0; i < sockets.size(); i++)
             {
-                if(i.first == -1)
+                if(sockets[i]== -1)
                     continue;
-                int retval = getsockopt(i.first, SOL_SOCKET, SO_ERROR, &error, &len);
+                int retval = getsockopt(sockets[i], SOL_SOCKET, SO_ERROR, &error, &len);
                 if (retval != 0)
                 {
                     // there was a problem getting the error code
@@ -73,12 +72,12 @@ void notifications::Server::mainThread()
                 {
                     // socket has a non zero error status
                     fprintf(stderr, "socket error: %s\n", strerror(error));
-                    i.first = -1;
-                    i.second.join();
+                    active_threads[i].join();
+
+
                 }
             }
             sleep(1);
-
         }
 
     }
@@ -104,42 +103,52 @@ int notifications::Server::initServer()
     socket_adress.sin_port = htons(config.getPort());
     int sd = socket(AF_INET, SOCK_STREAM, 0);
     int b = bind(sd, (sockaddr *) &socket_adress, sizeof(socket_adress));
+    if(b == -1)
+        std::cout <<"FAIL" <<std::endl;
     auto f = std::bind(&Server::mainSocketThread, std::ref(*this), sd);
     main_socket_thread = std::thread(f);
+
     running_mutex.unlock();
+    main_socket_thread.join();
     return 0;
 }
 
 void notifications::Server::processClient(int client_socket)
 {
     char *input;
-    std::string output;
     int sec = 2;
     int usec = 0;
     std::map<std::string, void *> args;
     args[SOCEKT_NUMBER] = (void *) (&client_socket);
     args[TIMEOUT_SEC] =  (void *) (&sec);
     args[TIMEOUT_USEC] = (void *) (&usec);
-    upper_layer->recive(input, args);
-
-
-    int action = *(int*)args[ACTION];
-    if (action != 5)
+    int code = upper_layer->recive(input, args);
+    if(code < 0)
     {
-        std::cout << input << std::endl;
-        std::string gowno(input);
-        JsonResolver res(*(int*)args[ACTION], *(int*)args[DEVICE_ID], gowno);
-        res.execute(&s);
-        res.print();
-        Json::FastWriter fastWriter;
-        std::string output = fastWriter.write(res.getReturnedJson());
-//        output = res.getReturnedJsonString();
-        char* realOutput = new char[output.size()];
-        strcpy(realOutput, output.c_str());
-        std::cout << output <<std::endl;
-        upper_layer->send(realOutput, args);
+        std::cout << "error in processing client request";
     }
+    else
+    {
+        int action = *(int*)args[ACTION];
+        char* output;
+        if (action != 5)
+        {
+            std::cout << input << std::endl;
+            std::string a(input);
+            JsonResolver res(*(int*)args[ACTION], *(int*)args[DEVICE_ID], a);
+            res.execute(&s);
+            res.print();
+            Json::FastWriter fastWriter;
+            std::string temp = fastWriter.write(res.getReturnedJson());
+            output = new char[temp.size()];
+            *(int*)args[MES_SIZE] = temp.size();
+            strcpy(output, temp.c_str());
+            std::cout << temp <<std::endl;
 
+        }
+        upper_layer->send(output, args);
+    }
+    close(client_socket);
 }
 
 
@@ -160,25 +169,21 @@ void notifications::Server::mainSocketThread(int i)
         sd = accept(i, s, &adr_size);
         running_mutex.lock();
         auto f = std::bind(&Server::processClient, std::ref(*this), sd);
+        bool found = false;
+
+
         std::thread t(f);
-        add(sd, t);
+        t.detach();
         running_mutex.unlock();
-        sleep(5);
+
     }
     delete s;
 }
 
 void notifications::Server::add(int i, std::thread &t)
 {
-//    for(int j = 0; j < active_threads.size(); j++)
-//    {
-//        if(active_threads[j].first == -1)
-//        {
-//            active_threads[j] = std::move(std::make_pair(i,std::move(t)));
-//            return;
-//        }
-//    }
-    active_threads.push_back(std::move(std::make_pair(i, std::move(t))));
+
+
 }
 
 void notifications::Server::run()

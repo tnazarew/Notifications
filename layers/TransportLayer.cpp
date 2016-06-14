@@ -8,6 +8,7 @@
 #include <iostream>
 #include <sys/socket.h>
 #include "TransportLayer.h"
+#include "SecurityLayer.h"
 
 int notifications::TransportLayer::send(char *string, std::map<std::string, void *> &map)
 {
@@ -23,6 +24,8 @@ int notifications::TransportLayer::send(char *string, std::map<std::string, void
     char *message = new char[4 + size];
     memcpy(message, h.getNet(), 4);
     memcpy(message + 4, string, size);
+//    printHex(message, 4+size);
+//    std::cout << size << std::endl;
     timeval t;
     t.tv_sec = timeout_sec;
     t.tv_usec = timeout_usec;
@@ -68,6 +71,7 @@ int notifications::TransportLayer::recive(char *&string, std::map<std::string, v
                 if (bytes == 12)
                 {
                     header = false;
+                    printHex(header_part, 12);
                     TCPHeader h(header_part);
                     size = h.getSize();
                     action = h.getActon();
@@ -99,12 +103,21 @@ int notifications::TransportLayer::recive(char *&string, std::map<std::string, v
     return -1;
 }
 
-void notifications::TransportLayer::shutdown()
-{
 
-}
 
 notifications::TransportLayer::TransportLayer(notifications::Layer *layer)
 {
     lower_layer = layer;
+}
+
+void notifications::TransportLayer::printHex(const char *mes, int size) const
+{
+    unsigned char *p = (unsigned char *) mes;
+    for (int i = 0; i < size; i++)
+    {
+        printf("0x%02x ", p[i]);
+        if ((i + 1) % 16 == 0)
+            printf("\n");
+    }
+    printf("\n");
 }

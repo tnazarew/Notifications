@@ -16,7 +16,6 @@ int notifications::ApplicationLayer::recive(char *&string, std::map<std::string,
 }
 
 
-
 notifications::ApplicationLayer::ApplicationLayer(notifications::Layer *layer)
 {
     lower_layer = layer;

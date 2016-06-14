@@ -5,8 +5,8 @@
 #ifndef NOTIFICATOR_LAYER_H
 #define NOTIFICATOR_LAYER_H
 
+#include <string>
 #include <map>
-#include <Log.h>
 
 namespace notifications
 {
@@ -24,6 +24,7 @@ namespace notifications
     static const int MESSAGE_REQUEST = 2;
     static const int MESSAGE_RECIVED = 3;
     static const int MESSAGE_READ = 4;
+
     static const int HANDSHAKE_REQUEST = 5;
     static const int PUBLIC_KEY_SIZE = 8;
     static const int SESSION_KEY_SIZE = 8;
@@ -33,9 +34,11 @@ namespace notifications
     protected:
         Layer *lower_layer;
     public:
+        Layer();
+        Layer(Layer*);
         virtual ~Layer();
 
-        virtual void shutdown() = 0;
+
 
         virtual int recive(char *&, std::map<std::string, void *> &) = 0;
 

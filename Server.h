@@ -33,7 +33,8 @@ namespace notifications
         void  processClient(int);
         bool running, exitServer;
         DatabaseService s;
-        std::vector<std::pair<int, std::thread> > active_threads;
+        std::vector<int> sockets;
+        std::vector<std::thread> active_threads;
         std::mutex running_mutex;
         std::map<int, std::thread> client_threads;
         Layer* upper_layer;

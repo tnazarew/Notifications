@@ -14,7 +14,7 @@ namespace notifications
     public:
         ApplicationLayer(Layer*);
 
-        void shutdown();
+
 
         int recive(char *&, std::map<std::string, void *> &);
 

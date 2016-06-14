@@ -10,9 +10,9 @@ namespace notifications
     class TCPHeader
     {
     public:
-        static const int ACTION = 1;
+        static const int ACTION = 2;
         static const int SIZE = 0;
-        static const int DEVICE_ID = 2;
+        static const int DEVICE_ID = 1;
         TCPHeader(unsigned int size, unsigned int action, unsigned int device_id);
         TCPHeader(char*);
         char* getNet();

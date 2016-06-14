@@ -21,12 +21,10 @@
       <sourceFolder url="file://$MODULE_DIR$/layers/ApplicationLayer.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/layers/SecurityLayer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/layers/SecurityLayer.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/layers/Log.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/layers/Layer.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/layers/ApplicationLayer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/layers/TransportLayer.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/layers/Layer.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/layers/Log.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/database/jsoncpp.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/database/JsonBuilder.cpp" isTestSource="false" />
@@ -79,12 +77,10 @@
           <root url="file://$MODULE_DIR$/layers/ApplicationLayer.cpp" />
           <root url="file://$MODULE_DIR$/layers/SecurityLayer.h" />
           <root url="file://$MODULE_DIR$/layers/SecurityLayer.cpp" />
-          <root url="file://$MODULE_DIR$/layers/Log.cpp" />
           <root url="file://$MODULE_DIR$/layers/Layer.cpp" />
           <root url="file://$MODULE_DIR$/layers/ApplicationLayer.h" />
           <root url="file://$MODULE_DIR$/layers/TransportLayer.h" />
           <root url="file://$MODULE_DIR$/layers/Layer.h" />
-          <root url="file://$MODULE_DIR$/layers/Log.h" />
           <root url="file://$MODULE_DIR$/database/jsoncpp.cpp" />
           <root url="file://$MODULE_DIR$/database/JsonBuilder.cpp" />
           <root url="file://$MODULE_DIR$/database/DatabaseService.h" />
